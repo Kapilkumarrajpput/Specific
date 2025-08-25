@@ -1,0 +1,998 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Specific IT Solutions - Professional IT Services & Technology Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-blue: #3908be;
+        --dark-blue: #48cc14;
+        --light-blue: #3b82f6;
+        --accent-blue: #e6e3ef;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-circle {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:  #faf8f2;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .logo-text {
+        color: hsl(201, 66%, 41%);
+      }
+
+      .logo-text .company-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #03050d;
+      }
+
+      .logo-text .tagline {
+        font-size: 14px;
+        color: #14130f;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .hero-section {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.9),
+          rgba(30, 64, 175, 0.9)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        z-index: 1;
+        object-fit: cover;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .floating-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(218, 75, 75, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid #e5e7eb;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2);
+      }
+
+      .service-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 32px;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        border-left: 4px solid var(--primary-blue);
+      }
+
+      .stats-counter {
+        font-size: 48px;
+        font-weight: bold;
+        color: var(--primary-blue);
+        display: block;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+        color: white;
+        padding: 15px 30px;
+        border-radius: 10px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--primary-blue);
+        border: 2px solid var(--primary-blue);
+        padding: 15px 30px;
+        border-radius: 10px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary-blue);
+        color: rgb(32, 38, 124);
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgb(18, 36, 127);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .logo-text .company-name {
+          font-size: 20px;
+        }
+
+        .logo-circle {
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+      }
+
+      .section-padding {
+        padding: 100px 0;
+      }
+
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .tech-item {
+        text-align: center;
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .tech-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .contact-form {
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(136, 198, 42, 0.1);
+      }
+
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--primary-blue);
+        z-index: 9999;
+        transition: width 0.1s ease;
+      }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="logo-container">
+                    <img src="Specific.png" alt="Specific IT Solutions Logo" style="width:50px; height:50px; border-radius:50%;" />
+                    <div class="logo-text">
+                        <div class="company-name">Specific</div>
+                         <div class="tagline text-boldblack-900" style="font-weight:bold;">IT Solutions </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="desktop-menu hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Services</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Portfolio</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn md:hidden" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu" id="mobileMenu">
+                    <div class="px-4 py-4 space-y-4">
+                        <a href="#home" class="block text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                        <a href="#about" class="block text-gray-700 hover:text-blue-600 font-medium">About</a>
+                        <a href="#services" class="block text-gray-700 hover:text-blue-600 font-medium">Services</a>
+                        <a href="#portfolio" class="block text-gray-700 hover:text-blue-600 font-medium">Portfolio</a>
+                        <a href="#contact" class="block text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4e787ae7-7c86-438b-bbd7-ffdaa11fd265.png" alt="Modern technology workspace with multiple computer monitors displaying code and data analytics in a sleek office environment" class="hero-bg w-full h-full object-cover" />
+        
+        <div class="hero-content w-full">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-white">
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            Specific <span class="text-white-300">IT Solutions</span>
+                        </h1>
+                        <p class="text-xl mb-8 text-blue-100 leading-relaxed">
+                            Empowering businesses with cutting-edge technology solutions, innovative software development, and comprehensive IT services that drive digital transformation.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#contact" class="btn-primary">Get Started</a>
+                            <a href="#services" class="btn-secondary text-white border-white hover:bg-white hover:text-blue-600">Our Services</a>
+                        </div>
+                    </div>
+                    <div class="floating-animation">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/60e15788-06fd-46d2-84a9-e0cba2e7b615.png" alt="Isometric illustration of cloud computing infrastructure with servers, databases, and network connections in blue and white color scheme" class="w-full rounded-2xl shadow-2xl" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div>
+                    <span class="stats-counter" data-target="55">0</span>
+                    <p class="text-gray-600 font-medium">Projects Completed</p>
+                </div>
+                <div>
+                    <span class="stats-counter" data-target="38">0</span>
+                    <p class="text-gray-600 font-medium">Happy Clients</p>
+                </div>
+                <div>
+                    <span class="stats-counter" data-target="3">0</span>
+                    <p class="text-gray-600 font-medium">Years Experience</p>
+                </div>
+                <div>
+                    <span class="stats-counter" data-target="24">0</span>
+                    <p class="text-gray-600 font-medium">24/7 Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-gray-900">About Specific IT Solutions</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        With over 3 years of experience in the technology industry, Specific IT Solutions has been at the forefront of digital innovation. We specialize in delivering comprehensive IT solutions that help businesses streamline operations, enhance productivity, and achieve sustainable growth.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Our team of certified professionals combines deep technical expertise with strategic business insights to deliver solutions that not only meet current needs but also prepare our clients for future challenges.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-blue-600 mb-2">Our Mission</h4>
+                            <p class="text-gray-600">To empower businesses through innovative technology solutions that drive growth and efficiency.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-600 mb-2">Our Vision</h4>
+                            <p class="text-gray-600">To be the leading IT solutions provider, setting new standards in technology innovation and customer service.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4d533402-884c-4d66-8e91-1d76dffca4be.png" alt="Professional team meeting in modern conference room with large displays showing data analytics and project timelines" class="w-full rounded-2xl shadow-xl" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-gray-900">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We offer a comprehensive range of IT services designed to meet the diverse needs of modern businesses.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Software Development</h3>
+                    <p class="text-gray-600 mb-6">Custom software solutions tailored to your business needs, from web applications to enterprise systems.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Web Applications</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Mobile Apps</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Enterprise Software</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>System Integration</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>API Development</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Software Testing</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Cloud Solutions</h3>
+                    <p class="text-gray-600 mb-6">Scalable cloud infrastructure and migration services to enhance your business agility and reduce costs.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Cloud Migration</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Infrastructure Management</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Backup & Recovery</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>System Security</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Cybersecurity</h3>
+                    <p class="text-gray-600 mb-6">Comprehensive security solutions to protect your digital assets and ensure business continuity.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Security Audits</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Threat Protection</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Compliance Management</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Company-wide Security Training</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Company consulting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Data Analytics</h3>
+                    <p class="text-gray-600 mb-6">Transform your data into actionable insights with our advanced analytics and business intelligence solutions.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Business Intelligence</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Data Visualization</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Predictive Analytics</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">IT Support</h3>
+                    <p class="text-gray-600 mb-6">24/7 technical support and maintenance services to keep your IT infrastructure running smoothly.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>24/7 Monitoring</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Help Desk Support</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Incident Management</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>System Maintenance</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Environment Management</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Digital Transformation</h3>
+                    <p class="text-gray-600 mb-6">Guide your organization through digital transformation with strategic consulting and implementation services.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Strategy Consulting</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Process Automation</li>
+                        <li><i class="fas fa-check text-blue-600 mr-2"></i>Change Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-gray-900">Technologies We Work With</h2>
+                <p class="text-xl text-gray-600">We leverage the latest technologies to deliver cutting-edge solutions</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-aws text-4xl text-orange-500 mb-4"></i>
+                    <h4 class="font-bold">AWS</h4>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-microsoft text-4xl text-blue-600 mb-4"></i>
+                    <h4 class="font-bold">Cloud</h4>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-react text-4xl text-blue-400 mb-4"></i>
+                    <h4 class="font-bold">Artificial Intelligence</h4>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-node-js text-4xl text-green-600 mb-4"></i>
+                    <h4 class="font-bold">Data Analytics</h4>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-python text-4xl text-yellow-500 mb-4"></i>
+                    <h4 class="font-bold">Python</h4>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-docker text-4xl text-blue-500 mb-4"></i>
+                    <h4 class="font-bold">Java</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-gray-900">Our Portfolio</h2>
+                <p class="text-xl text-gray-600">Showcasing some of our successful projects and client solutions</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a2737bfb-0193-4265-973b-c1e167fb21d2.png" alt="E-commerce platform dashboard showing sales analytics, inventory management, and customer data visualization" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">Full-stack e-commerce solution with payment integration and inventory management</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/598d8ba7-e667-45bb-a83c-1485967b98d8.png" alt="Healthcare management system interface with patient records, appointment scheduling, and medical data tracking" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Healthcare Management System</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive patient management system with appointment scheduling and medical records</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Angular</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">.NET</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9f8feaa-ad85-402e-9382-a85c1725afbf.png" alt="Financial analytics dashboard with real-time charts, graphs, and market data visualization in dark theme" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Financial Analytics Platform</h3>
+                        <p class="text-gray-600 mb-4">Real-time financial data analytics and reporting platform for investment firms</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Django</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-gray-900">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600">Don't just take our word for it - hear from our satisfied clients</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Specific IT Solutions transformed our business with their innovative software solution. The team was professional, responsive, and delivered exactly what we needed."</p>
+                    <div class="flex items-center">
+                        <img src="Sheetal Arora.png".png" alt="Professional headshot of John Smith, CEO of TechCorp, wearing business suit" class="w-12 h-12 rounded-full mr-4" />
+                        <div>
+                            <h4 class="font-bold">Sheetal Arora</h4>
+                            <p class="text-sm text-gray-500">CEO, Mankind Pharma</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Excellent cloud migration services. Our system performance improved significantly, and the support team is always available when we need them."</p>
+                    <div class="flex items-center">
+                        <img src="anand-g.-mahindra..png" alt="Professional headshot of Sarah Johnson, CTO of DataFlow Solutions, smiling with technology background" class="w-12 h-12 rounded-full mr-4" />
+                        <div>
+                            <h4 class="font-bold">Anand G Mahindra </h4>
+
+                            <p class="text-sm text-gray-500">CEO, Tech Mahindra</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Their cybersecurity expertise helped us secure our infrastructure and achieve compliance. Highly recommend their services."</p>
+                    <div class="flex items-center">
+                        <img src="sky li.png" alt="Professional headshot of Michael Brown, IT Director of SecureBank, in business attire" class="w-12 h-12 rounded-full mr-4" />
+                        <div>
+                            <h4 class="font-bold">Sky Li</h4>
+
+                            <p class="text-sm text-gray-500">CEO, Realme Corporation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-gray-900">Get In Touch</h2>
+                <p class="text-xl text-gray-600">Ready to transform your business? Let's discuss your project requirements</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Address</h4>
+                                <p class="text-gray-600">R-Z-C-9 Patel Gardern Dawaraka New Delhi</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Phone</h4>
+                                <p class="text-gray-600">9084253684</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Email</h4>
+                                <p class="text-gray-600">specificitsolutions@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Business Hours</h4>
+                                <p class="text-gray-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <input type="text" id="firstName" placeholder="First Name" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="lastName" placeholder="Last Name" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Email Address" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Phone Number" />
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-2">
+                    <div class="logo-container mb-6">
+                        <img src="Specific.png" alt="Specific IT Solutions Logo" style="width:50px; height:50px; border-radius:50%;" />
+                        <div class="logo-text">
+                            <div class="company-name text-white">Specific</div>
+                            <div class="tagline text-boldblack-900" style="font-weight:bold;">IT S o l u t i o n s</div>
+                        </div>
+                    </div>
+                    <p class="text-black-400 mb-6 max-w-md">
+                        Empowering businesses with innovative technology solutions that drive growth, efficiency, and digital transformation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Software Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cloud Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cybersecurity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Data Analytics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">IT Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">App Development</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2024 Specific IT Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Stats counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        counter.textContent = target + (target === 24 ? '/7' : '+');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + (target === 24 ? '/7' : '+');
+                    }
+                }, 16);
+            });
+        }
+
+        // Intersection Observer for counter animation
+        const statsSection = document.querySelector('.stats-counter').closest('section');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        statsObserver.observe(statsSection);
+
+        // Contact form submission
+     document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+
+    // Collect form data
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+    };
+
+    // Send form data to backend
+    fetch('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message); 
+        this.reset();
+    })
+    .catch(err => alert('Error!')); 
+});
+
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .testimonial-card, .tech-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Particles effect (optional enhancement)
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(59, 130, 246, 0.3)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = '-10px';
+            particle.style.animation = 'fall 3s linear infinite';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 3000);
+        }
+
+        // Add CSS for particle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(${window.innerHeight + 10}px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Create particles occasionally
+        setInterval(createParticle, 2000);
+    </script>
+</body>
+</html>
